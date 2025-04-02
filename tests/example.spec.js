@@ -29,7 +29,7 @@ test.describe('Search Functionality', () => {
 
 test.describe('Add Track Using "+" Button', () => {
 
-  test.only("Test the ability to add a single track using the < + > button for a given track", async ({page}) => {
+  test("Test the ability to add a single track using the < + > button for a given track", async ({page}) => {
  
       await page.locator("button").nth(2).click();
       await expect(page.getByText('Your playlist')).toBeVisible();

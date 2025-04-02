@@ -40,7 +40,18 @@ test.describe('Add Track Using "+" Button', () => {
 });
 
 test.describe('Verify Total Duration of the Playlist in Seconds', () => {
+  
+  test.only("Test that the total duration of all tracks in 'Your Playlist' is accurately calculated and displayed in seconds", async ({page}) => {
+        
+    await page.locator("button").nth(0).click();
+    await page.locator("button").nth(1).click();
+    await page.locator("button").nth(2).click();
 
+    
+    console.log(page.locator('#playlist-duration'))
+    // await expect(page.getByTestId('playlist-duration')).toHaveText(635);
+
+  });
  
 
 });

@@ -12,8 +12,16 @@ test.describe('Search Functionality', () => {
     const inputField = page.getByLabel("Search");    
     
         await expect(inputField).toBeVisible();
-        await inputField.fill("summer");
-        await expect(page.getByText('Summer Breeze')).toBeVisible();
+        
+      });
+  
+  test('Ensure that when a user types a track name in the search box, only matching tracks are displayed', async ({ page }) => {  
+        
+        const inputField = page.getByLabel("Search");    
+        
+          await inputField.fill("summer");
+          await expect(page.getByText('Summer Breeze')).toBeVisible();
+      
         
   });
 
@@ -21,7 +29,13 @@ test.describe('Search Functionality', () => {
 
 test.describe('Add Track Using "+" Button', () => {
 
-  
+  test.only("Test the ability to add a single track using the < + > button for a given track", async ({page}) => {
+ 
+      await page.locator("button").nth(2).click();
+      await expect(page.getByText('Your playlist')).toBeVisible();
+      await expect(page.locator('#playlist').getByText('Winter Winds')).toBeVisible();    
+        
+  });  
 
 });
 
